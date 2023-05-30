@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.javaquizgame'
+    namespace 'com.example.filipiknowtriviaquiz'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.javaquizgame"
+        applicationId "com.example.filipiknowtriviaquiz"
         minSdk 28
         targetSdk 33
         versionCode 1

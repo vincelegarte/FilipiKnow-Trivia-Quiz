@@ -1,4 +1,4 @@
-package com.example.javaquizgame;
+package com.example.filipiknowtriviaquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,35 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class GameOverActivity extends AppCompatActivity {
 
-    Button button_start;
-    Button button_mechanics;
+    Button button_retry;
     Button button_exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game_over);
 
-        button_start = findViewById(R.id.button_start);
-        button_mechanics = findViewById(R.id.button_mechanics);
+        button_retry = findViewById(R.id.button_retry);
         button_exit = findViewById(R.id.button_exit);
 
-        button_start.setOnClickListener(new View.OnClickListener() {
+        button_retry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+                Intent intent = new Intent(GameOverActivity.this, MainActivity.class);
                 startActivity(intent);
-                MainActivity.super.onBackPressed();
-            }
-        });
-
-        button_mechanics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MechanicsActivity.class);
-                startActivity(intent);
+                GameOverActivity.super.onBackPressed();
             }
         });
 

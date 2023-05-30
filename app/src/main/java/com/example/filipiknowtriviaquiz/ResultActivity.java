@@ -1,4 +1,4 @@
-package com.example.javaquizgame;
+package com.example.filipiknowtriviaquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,26 +6,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class GameOverActivity extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
-    Button button_retry;
+    TextView text_score;
+    Button button_main;
     Button button_exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_over);
+        setContentView(R.layout.activity_result);
 
-        button_retry = findViewById(R.id.button_retry);
+        text_score = findViewById(R.id.text_score);
+        button_main = findViewById(R.id.button_main);
         button_exit = findViewById(R.id.button_exit);
 
-        button_retry.setOnClickListener(new View.OnClickListener() {
+        String quiz_score = getIntent().getStringExtra("score");
+        text_score.setText(quiz_score);
+
+        button_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GameOverActivity.this, MainActivity.class);
+                Intent intent = new Intent(ResultActivity.this,MainActivity.class);
                 startActivity(intent);
-                GameOverActivity.super.onBackPressed();
+                ResultActivity.super.onBackPressed();
             }
         });
 
